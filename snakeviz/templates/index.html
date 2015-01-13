@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" .>
+    <title>snakeviz</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/static/snakeviz.css" rel="stylesheet">
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="/static/vendor/jquery.dataTables.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <h1 id="snakeviz-text">SnakeViz</h1>
+    <div class="dashboard">
+      {% for func, l in profile_group %}
+      <div class="panel panel-default"">
+        <div class="panel-heading">{{ func }}</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>profile</th>
+              <th>upstream time</th>
+              <th>datetime</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for profile_name, ms, timestamp in l %}
+            <tr>
+              <th><a href="/snakeviz/{{profile_name}}" target="_blank">{{profile_name}}</a></th>
+              <th>{{ ms }}ms</th>
+              <th>{{ timestamp }}</th>
+            </tr>
+            {% end %}
+          </tbody>
+        </table>
+      </div>
+      {% end %}
+    </div>
+  </body>
+</html>

@@ -191,3 +191,7 @@ select {
     -webkit-transform: scale(1.0);
   }
 }
+
+.dashboard {
+  margin-top: 45px;
+}
